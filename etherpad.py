@@ -145,8 +145,8 @@ class Etherpad:
             ValueError: An error message from the etherpad API.
         """
         
-        if StrictVersion(self._version) < StrictVersion('1'):
-            self.__error(self.__line_no(), 'Etherpad API version 1 or later is required, you have ,', self._version, '.', None)
+        if StrictVersion(self._version) < StrictVersion('1.0.0'):
+            self.__error(self.__line_no(), 'Etherpad API version 1.0.0 or later is required, you have ,', self._version, '.', None)
             return False
         
         params = {
@@ -179,7 +179,7 @@ class Etherpad:
         """ 
         
         url = 'pad.{}/api/{}/{}'.format(self._base, self._version, method)        
-        params = { 'apikey' : self._apikey }.update(params)
+        params.update({'apikey' : self._apikey})
         
         resp = requests.get(url, params)
         
