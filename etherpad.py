@@ -132,17 +132,16 @@ class Etherpad:
     
     def unique_authors(self, pad):
         """
-        Extract all unique_contributions from a saved etherpad pad.
+        Extract all unique authors from a saved etherpad pad.
         
         Args:
             pad: The pad name.
-            auhors: The author names for which the contributions need to be extracted.
 
         Returns:
-            A list with all text added by each author and a list of all text deleted by each author.
+            A list with all authors.
         
         Raises:
-            ValueError: Etherpad API version 1.2.7 or later is required.
+            ValueError: Etherpad API version 1 or later is required.
             ValueError: An error message from the etherpad API.
         """
         
